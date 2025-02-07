@@ -32,21 +32,6 @@ pipeline {
 				
 		// 	}
 		// }
-		stage('Checkout Code') {
-			steps {
-				checkout([
-					$class: 'GitSCM', 
-					branches: [[name: '*/main']],  // Ensure it checks out a branch
-					userRemoteConfigs: [[
-						url: 'https://github.com/nguyendamducthoai/nginx-demo.git',
-					]]
-				])
-				sh '''
-				git fetch --all
-				git checkout main || git checkout -b main
-				'''
-			}
-		}
 		stage("update-manifests"){
 			steps {
 				withCredentials([usernamePassword(credentialsId: 'github-credentials', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PAT')]) {
