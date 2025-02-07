@@ -32,7 +32,7 @@ pipeline {
 		// }
 		stage("update-manifests"){
 			steps {
-				'''
+				sh '''
 					cd kustomize/overlays/dev
 					kustomize edit set image my-app=${IMAGE_NAME}:${BUILD_TAG}
 				'''
