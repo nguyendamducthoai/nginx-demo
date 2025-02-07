@@ -48,6 +48,9 @@ pipeline {
 						git commit -m "Automated commit from Jenkins"
 
 						cd ../../../
+
+						git status
+
 						git push origin main
 					'''
 				}
