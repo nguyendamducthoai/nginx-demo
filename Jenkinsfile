@@ -46,6 +46,8 @@ pipeline {
 						
 						git add kustomization.yaml
 						git commit -m "Automated commit from Jenkins"
+
+						cd ../../../
 						git push origin main
 					'''
 				}
