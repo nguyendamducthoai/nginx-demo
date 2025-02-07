@@ -5,6 +5,8 @@ pipeline {
         IMAGE_NAME = "damducthoai/test-01"
 		BUILD_TAG = "build-${BUILD_NUMBER}"
         REGISTRY = "docker.io"
+		GIT_USER = "jenkins-bot"
+        GIT_EMAIL = "nguyendamducthoai@gmail.com"
     }
 
 	triggers {
@@ -32,10 +34,22 @@ pipeline {
 		// }
 		stage("update-manifests"){
 			steps {
-				sh '''
-					cd kustomize/overlays/dev
-					kustomize edit set image my-app=${IMAGE_NAME}:${BUILD_TAG}
-				'''
+				withCredentials([usernamePassword(credentialsId: 'github-credentials', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PAT')]) {
+					sh '''
+
+						git config --global user.name "${GIT_USER}"
+						git config --global user.email "${GIT_EMAIL}"
+						git remote set-url origin https://$GIT_USER:$GIT_PAT@github.com/nguyendamducthoai/nginx-demo.git
+
+						cd kustomize/overlays/dev
+						kustomize edit set image my-app=${IMAGE_NAME}:${BUILD_TAG}
+						
+						git add kustomization.yaml
+						git commit -m "Automated commit from Jenkins"
+						git push origin main
+					'''
+				}
+				
 			}
 		}
 
