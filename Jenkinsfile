@@ -24,6 +24,7 @@ pipeline {
                         sh '''
                             podman login -u ${DOCKER_USER} -p ${DOCKER_PASS} ${REGISTRY}
                             podman build -t ${IMAGE_NAME}:${BUILD_TAG} .
+                            podman push ${IMAGE_NAME}:${BUILD_TAG}
                         '''
                 }
 				
