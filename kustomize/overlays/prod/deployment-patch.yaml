@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 5  # Increase replicas for production
+  template:
+    spec:
+      containers:
+        - name: my-app
+          image: my-app:prod  # Production image
