@@ -9,5 +9,5 @@ patches:
 
 images:
 - name: my-app
-  newName: my-app
-  newTag: "2"
+  newName: damducthoai/test-01
+  newTag: build-6
