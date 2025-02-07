@@ -10,4 +10,4 @@ patches:
 images:
 - name: my-app
   newName: damducthoai/test-01
-  newTag: build-4
+  newTag: build-5
