@@ -54,6 +54,9 @@ pipeline {
 
 						git config --global user.name "${GIT_USER}"
 						git config --global user.email "${GIT_EMAIL}"
+
+						git pull --rebase
+
 						git remote set-url origin https://$GIT_USER:$GIT_PAT@github.com/nguyendamducthoai/nginx-demo.git
 
 						cd kustomize/overlays/dev
