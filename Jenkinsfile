@@ -3,8 +3,6 @@ pipeline {
 
 	environment {
 		BUILD_TAG = "build-${BUILD_NUMBER}"
-		GIT_USER = "jenkins-bot"
-        GIT_EMAIL = "nguyendamducthoai@gmail.com"
     }
 
 	triggers {
