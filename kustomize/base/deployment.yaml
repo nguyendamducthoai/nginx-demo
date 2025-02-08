@@ -18,7 +18,7 @@ spec:
         app: backend
     spec:
       containers:
-      - image: damducthoai/test-01:build-3
+      - image: damducthoai/test-01:build-21
         name: test-01
         ports:
         - containerPort: 80
