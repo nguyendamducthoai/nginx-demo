@@ -3,7 +3,7 @@ pipeline {
 
 	environment {
 		BUILD_TAG = "build-${BUILD_NUMBER}"
-		IMAGE_NAME = "${env.IMAGE_NAME}"
+		IMAGE_NAME = '${IMAGE_NAME}'
     }
 
 	triggers {
