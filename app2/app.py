@@ -19,4 +19,4 @@ def metrics():
 
 if __name__ == "__main__":
     # Listen on all interfaces, port 8080
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=80)
