@@ -2,9 +2,7 @@ pipeline {
 	agent any
 
 	environment {
-        IMAGE_NAME = "damducthoai/test-01"
 		BUILD_TAG = "build-${BUILD_NUMBER}"
-        REGISTRY = "docker.io"
 		GIT_USER = "jenkins-bot"
         GIT_EMAIL = "nguyendamducthoai@gmail.com"
     }
@@ -26,7 +24,7 @@ pipeline {
 					$class: 'GitSCM', 
 					branches: [[name: '*/main']],  // Ensure it checks out a branch
 					userRemoteConfigs: [[
-						url: 'https://github.com/nguyendamducthoai/nginx-demo.git',
+						url: 'https://$GIT_REPO',
 					]]
 				])
 				sh '''
