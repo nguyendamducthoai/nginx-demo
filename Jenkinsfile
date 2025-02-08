@@ -56,7 +56,7 @@ pipeline {
 						git config --global user.name "${GIT_USER}"
 						git config --global user.email "${GIT_EMAIL}"
 
-						git remote set-url origin https://$GIT_USER:$GIT_PAT@github.com/nguyendamducthoai/nginx-demo.git
+						git remote set-url origin https://$GIT_USER:$GIT_PAT@$GIT_REPO
 
 						cd kustomize/overlays/dev
 						kustomize edit set image my-app=${IMAGE_NAME}:${BUILD_TAG}
