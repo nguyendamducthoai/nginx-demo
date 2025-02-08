@@ -1,19 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  creationTimestamp: null
+  labels:
+    app: backend
+  name: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-app
+      app: backend
+  strategy: {}
   template:
     metadata:
+      creationTimestamp: null
       labels:
-        app: my-app
+        app: backend
     spec:
       containers:
-        - name: my-app
-          image: my-app:latest
-          ports:
-            - containerPort: 80
+      - image: damducthoai/test-01:build-3
+        name: test-01
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
