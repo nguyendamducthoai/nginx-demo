@@ -10,4 +10,4 @@ images:
   newTag: build-20
 - name: test-01
   newName: damducthoai/test-01
-  newTag: build-37
+  newTag: build-38
