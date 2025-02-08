@@ -13,6 +13,10 @@ spec:
   strategy: {}
   template:
     metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "80"
+        prometheus.io/path: "/metrics"
       creationTimestamp: null
       labels:
         app: backend
