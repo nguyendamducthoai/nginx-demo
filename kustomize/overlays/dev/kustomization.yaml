@@ -7,7 +7,7 @@ resources:
 images:
 - name: my-app
   newName: damducthoai/test-01
-  newTag: build-18
+  newTag: build-19
 - name: test-01
   newName: damducthoai/test-01
   newTag: build-7
