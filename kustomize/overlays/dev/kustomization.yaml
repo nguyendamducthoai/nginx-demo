@@ -5,6 +5,6 @@ resources:
 - ../../base
 
 images:
-- name: my-app
+- name: test-01
   newName: damducthoai/test-01
   newTag: build-7
