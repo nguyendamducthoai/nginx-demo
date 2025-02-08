@@ -57,7 +57,7 @@ pipeline {
 						git remote set-url origin https://$GIT_USER:$GIT_PAT@$GIT_REPO
 
 						cd kustomize/overlays/dev
-						kustomize edit set image my-app=$IMAGE_NAME:${BUILD_TAG}
+						kustomize edit set image test-01=$IMAGE_NAME:${BUILD_TAG}
 						
 						git add kustomization.yaml
 						git commit -m "Automated commit from Jenkins"
