@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .  # Build from the current directory
+      dockerfile: dockerfile
+    ports:
+      - "8080:8080"  # Expose port 5000
+    privileged: true
+    volumes:
+      - jenkins_data:/var/jenkins_home
+    environment:
+      GIT_USER: ${GIT_USER}  # Set environment variables
+      GIT_PAT: ${GIT_PAT}
+      DOCKER_USER: ${DOCKER_USER}
+      DOCKER_PAT: ${DOCKER_PAT}
+      GIT_REPO: ${GIT_REPO}
+
+volumes:
+  jenkins_data:  # Docker-managed persistent storage
