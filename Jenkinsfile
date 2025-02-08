@@ -37,8 +37,8 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub_id', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                         sh '''
                             podman login -u ${DOCKER_USER} -p ${DOCKER_PASS} ${REGISTRY}
-                            podman build -t ${IMAGE_NAME}:${BUILD_TAG} .
-                            podman push ${IMAGE_NAME}:${BUILD_TAG}
+                            podman build -t $IMAGE_NAME:${BUILD_TAG} .
+                            podman push $IMAGE_NAME:${BUILD_TAG}
                         '''
                 }
 				
@@ -55,7 +55,7 @@ pipeline {
 						git remote set-url origin https://$GIT_USER:$GIT_PAT@$GIT_REPO
 
 						cd kustomize/overlays/dev
-						kustomize edit set image my-app=${IMAGE_NAME}:${BUILD_TAG}
+						kustomize edit set image my-app=$IMAGE_NAME:${BUILD_TAG}
 						
 						git add kustomization.yaml
 						git commit -m "Automated commit from Jenkins"
